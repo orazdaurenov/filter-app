@@ -1,5 +1,5 @@
 "use client";
-import Data, { Items } from "../api-services/Data";
+import { Items } from "../api-services/Data";
 import ListItem from "./ListItem";
 
 //todos:
@@ -11,7 +11,7 @@ type RenderDataProps = {
 export default function RenderData(props: RenderDataProps) {
   return (
     <>
-      <ul>
+      <ul className="grid grid-cols-3">
         {props.allData.map((item) => {
           return <ListItem key={item.id} data={item} />;
         })}

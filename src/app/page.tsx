@@ -4,7 +4,6 @@ import RenderData from "./components/RenderData";
 export default function HomePage() {
   return (
     <>
-      <p>Hello WOrld</p>
       <RenderData allData={Data} />
     </>
   );
