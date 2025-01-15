@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Items } from "../api-services/Data";
 import Breakfast from "./Breakfast";
 import ListItem from "./ListItem";
+import Lunch from "./Lunch";
+import AllMenu from "./AllMenu";
 
 //todos:
 // 2. destrucutre props
@@ -11,16 +13,14 @@ type RenderDataProps = {
   allData: Items[];
 };
 export default function RenderData(props: RenderDataProps) {
-  const [allitems, setItems] = useState(props.allData);
-
-  function setItemOnNewArr(arr: Items[]) {
-    setItems(arr);
-  }
+  const [items, setItems] = useState(props.allData);
   return (
     <>
-      <Breakfast onFilter={setItemOnNewArr} />
+      <Breakfast handleClick={setItems} />
+      <Lunch handleClick={setItems} />
+      <AllMenu handleClick={setItems} />
       <ul className="grid grid-cols-3">
-        {allitems.map((item) => {
+        {items.map((item) => {
           return <ListItem key={item.id} data={item} />;
         })}
       </ul>
