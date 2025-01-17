@@ -5,6 +5,7 @@ import Breakfast from "./Breakfast";
 import ListItem from "./ListItem";
 import Lunch from "./Lunch";
 import AllMenu from "./AllMenu";
+import InputFilter from "./InputFilter";
 
 //todos:
 // 2. destrucutre props
@@ -15,23 +16,31 @@ type RenderDataProps = {
 export default function RenderData(props: RenderDataProps) {
   const [items, setItems] = useState(props.allData);
 
-  const categories = props.allData.map((e) => e.category);
-  const searchInput = "Sn";
+  // const categories = props.allData.map((e) => e.category);
+  // const searchInput = "Sn";
 
-  const result: string[] = [];
-  // go through every element of the array
-  // if the current element has the search string, add it to the result array
-  for (let index = 0; index < categories.length; index++) {
-    const element = categories[index];
-    if (element?.includes(searchInput)) {
-      result.push(element);
-    }
-  }
-  console.log("results: ", result);
-
+  // const result: string[] = [];
+  // // go through every element of the array
+  // // if the current element has the search string, add it to the result array
+  // for (let index = 0; index < categories.length; index++) {
+  //   const element = categories[index];
+  //   if (element?.includes(searchInput)) {
+  //     result.push(element);
+  //   }
+  // }
+  // console.log("results: ", result);
+  /*
+ var a
+ fn(){
+ a="hi"
+ var b=false
+ fn()
+ }
+ setItems(b)
+*/
   return (
     <>
-      <InputFilter />
+      <InputFilter setItems={setItems} />
       <Breakfast handleClick={setItems} />
       <Lunch handleClick={setItems} />
       <AllMenu handleClick={setItems} />
@@ -43,22 +52,3 @@ export default function RenderData(props: RenderDataProps) {
     </>
   );
 }
-
-const InputFilter = () => {
-  const [filter, setFilter] = useState("");
-
-  return (
-    <>
-      <label htmlFor="">Type here:</label>
-      <input
-        className="m-3 bg-slate-600 text-white"
-        type="text"
-        name="filter"
-        id="filter"
-        value={filter}
-        onChange={(event) => setFilter(event.target.value)}
-      />
-      <p>{filter}</p>
-    </>
-  );
-};
