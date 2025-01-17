@@ -46,12 +46,7 @@ export default function RenderData(props: RenderDataProps) {
 
 const InputFilter = () => {
   const [filter, setFilter] = useState("");
-  const searchingResult = Data;
-  const result = [];
-  for (let index = 0; index > searchingResult.length; index ++) {
-    const element = searchingResult[index];
-    if ()
-  }
+
   return (
     <>
       <label htmlFor="">Type here:</label>
