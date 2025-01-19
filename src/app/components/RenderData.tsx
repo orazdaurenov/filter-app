@@ -40,7 +40,7 @@ export default function RenderData(props: RenderDataProps) {
 */
   return (
     <>
-      <InputFilter setItems={setItems} />
+      <InputFilter onSave={setItems} />
       <Breakfast handleClick={setItems} />
       <Lunch handleClick={setItems} />
       <AllMenu handleClick={setItems} />
