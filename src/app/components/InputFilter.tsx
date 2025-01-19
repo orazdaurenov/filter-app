@@ -7,20 +7,15 @@ type InputFilterProps = {
 
 const InputFilter = ({ setItems }: InputFilterProps) => {
   const [filter, setFilter] = useState("");
-  //input: "Dum"
-  //output: "Dum Alloo"
-  const newItems: Items[] = [];
-  const onSearch = () => {
-    console.log("STARTING");
-    const AllData = Data;
-    for (let index = 0; index < AllData.length; index++) {
-      const currentItem = AllData[index];
+  function onSearch() {
+    const allData = Data;
+    for (let index = 0; index < allData.length; index++) {
+      const currentItem = allData[index];
       if (currentItem?.title.includes(filter)) {
         setItems([currentItem]);
       }
     }
-  };
-
+  }
   return (
     <>
       <label htmlFor="">Type here:</label>
