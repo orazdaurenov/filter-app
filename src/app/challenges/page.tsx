@@ -1,10 +1,11 @@
-import Button from "./challenge-components/Button";
+"use client";
+import Timer from "./challenge-components/Timer";
 
 export default function HomePage() {
   return (
     <>
       <div>
-        <Button />
+        <Timer />
       </div>
     </>
   );
